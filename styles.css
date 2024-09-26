@@ -1,0 +1,124 @@
+body {
+    background-color: rgba(4, 7, 4, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0 0 0 0;
+    padding: 0;
+    color: #b2d9ac;
+    font-size: 1.3rem;
+    overflow: hidden;
+    /* Prevents scrollbar on body */
+}
+
+.terminal {
+    width: calc(85% - 15px);
+    height: 90%;
+    background-color: black;
+    border-radius: 10px;
+    position: relative;
+}
+
+.title-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.9rem;
+    background-color: #333;
+    border-radius: 3px 3px 0 0;
+    /* Round upper corners only */
+    padding: 5px;
+}
+
+.title-bar .btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+.close-btn {
+    background-color: #ff5f56;
+}
+
+.minimize-btn {
+    background-color: #ffbd2e;
+}
+
+.maximize-btn {
+    background-color: #28c840;
+}
+
+#title-span {
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+
+.cli-content {
+    height: calc(100% - 35px);
+    overflow-y: auto;
+    /* Enable vertical scrollbar */
+    padding: 20px;
+    font-family: monospace;
+    background-color: black;
+    margin-top: 35px;
+    /* Pushes down content to account for the title bar */
+}
+
+.dots {
+    display: inline-block;
+    width: 1ch;
+}
+
+.prompt {
+    color: #38b0e3;
+}
+
+.path {
+    color: #86e21d;
+}
+
+.branch {
+    color: #d14d3e;
+}
+
+/* Blink cursor */
+.blinking-cursor {
+    font-weight: bold;
+    font-size: 1.2em;
+    animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Portrait Screen */
+@media (max-width: 600px) {
+    body {
+        font-size: 1rem;
+    }
+
+    .title-bar {
+        font-size: 1.5rem;
+    }
+
+    .cli-content {
+        padding: 10px;
+    }
+
+    .cli-content div {
+        white-space: normal;
+        /* Allows text to wrap */
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+}
